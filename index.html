@@ -1,0 +1,27 @@
+<script>
+    window.onload = () => {
+        generate()
+    }
+    let generate = ()=>{
+        let l_alphabets = 'abcdefghijklmnopqrstuvwxyz'
+        let u_alphabets = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        let numbers = '1234567890'
+        let letters = ""
+        cb_l_alphabet.checked?letters += l_alphabets:false;
+        cb_u_alphabet.checked?letters += u_alphabets:false;
+        cb_number.checked?letters += numbers:false;
+        cb_symbol?letters += symbol_list.value:false;
+        PW.value = ""
+        for(let loop_num=0; loop_num<digits.value ; loop_num++){
+            PW.value += letters.charAt(Math.floor(Math.random() * letters.length))
+        }
+    }
+
+</script>
+<input type="text" id="PW" /><br>
+lowercase_alphabets(abc...):<input id="cb_l_alphabet" type="checkbox" checked /><br>
+uppercase_alphabets(ABC...):<input id="cb_u_alphabet" type="checkbox" checked /><br>
+numbers(123...):<input id="cb_number" type="checkbox" checked /><br>
+symbols:<input id="cb_symbol" type="checkbox" checked /><input id="symbol_list" type="text" value="@&%$#!"/><br>
+digits:<input id="digits" type="number" value="12" min="1" /><br>
+<input id="btn_generate" type="button" value="GENERATE" onclick="generate()"/>
